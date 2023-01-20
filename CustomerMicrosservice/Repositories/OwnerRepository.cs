@@ -10,7 +10,7 @@ namespace OwnerMicrosservice.Repositories
         public OwnerRepository()
         {
             // This should be injected - This is just an example.
-            _repository = new BaseRepository<Owner>(Collection.Users);
+            _repository = new BaseRepository<Owner>(Collection.owners);
         }
 
         public async Task<List<Owner>> GetAllAsync() => await _repository.GetAllAsync<Owner>();

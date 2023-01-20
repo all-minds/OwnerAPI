@@ -50,7 +50,7 @@ namespace OwnerMicrosservice.Repositories
         public async Task<T> AddAsync<T>(T entity) where T : IBaseFirestoreData
         {
             var colRef = _firestoreDb.Collection(_collection.ToString());
-            var doc = await colRef.AddAsync(entity);
+            var doc = await colRef.Document(entity.Id).CreateAsync(entity);
             // GO GET RECORD FROM DATABASE:
             // return (T) await GetAsync(entity); 
             return entity;
